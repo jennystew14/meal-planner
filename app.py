@@ -269,7 +269,7 @@ if page == "📚 Recipe Library":
                     # Convert tags list to comma string if needed
                     if isinstance(recipe.get("Tags"), list):
                         recipe["Tags"] = recipe["Tags"]
-                   result = at_post("Recipes", recipe)
+                result = at_post("Recipes", recipe)
                     if "error" in result:
                         st.error(f"Airtable error: {result}")
                     else:
