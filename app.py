@@ -9,10 +9,10 @@ from datetime import date, timedelta
 load_dotenv()
 
 # ── Config ──────────────────────────────────────────────────────────────────
-ANTHROPIC_KEY   = os.getenv("ANTHROPIC_API_KEY", "")
-AIRTABLE_TOKEN  = os.getenv("AIRTABLE_TOKEN", "")
-AIRTABLE_BASE   = os.getenv("AIRTABLE_BASE_ID", "app8eWcW7BHJ4EGxv")
-JINA_KEY        = os.getenv("JINA_API_KEY", "")
+ANTHROPIC_KEY   = os.getenv("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY", "")
+AIRTABLE_TOKEN  = os.getenv("AIRTABLE_TOKEN") or st.secrets.get("AIRTABLE_TOKEN", "")
+AIRTABLE_BASE   = os.getenv("AIRTABLE_BASE_ID") or st.secrets.get("AIRTABLE_BASE_ID", "app8eWcW7BHJ4EGxv")
+JINA_KEY        = os.getenv("JINA_API_KEY") or st.secrets.get("JINA_API_KEY", "")
 
 AIRTABLE_HEADERS = {
     "Authorization": f"Bearer {AIRTABLE_TOKEN}",
