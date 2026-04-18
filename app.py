@@ -246,6 +246,7 @@ if page == "📚 Recipe Library":
                     if source_url:
                         recipe["Source URL"] = source_url
                     result = at_post("Recipes", recipe)
+                    recipe.pop("Tags", None)
                     if "error" in result:
                         st.error(f"Airtable error: {result}")
                     else:
