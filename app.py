@@ -275,7 +275,6 @@ if page == "📚 Recipe Library":
                     else:
                         st.success(f"✅ **{recipe.get('Name','Recipe')}** saved to your library!")
                     st.json(recipe)
-                    st.json(recipe)
                 except Exception as e:
                     st.error(f"Could not parse recipe: {e}")
 
