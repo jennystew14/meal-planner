@@ -269,8 +269,12 @@ if page == "📚 Recipe Library":
                     # Convert tags list to comma string if needed
                     if isinstance(recipe.get("Tags"), list):
                         recipe["Tags"] = recipe["Tags"]
-                    at_post("Recipes", recipe)
-                    st.success(f"✅ **{recipe.get('Name','Recipe')}** saved to your library!")
+                   result = at_post("Recipes", recipe)
+                    if "error" in result:
+                        st.error(f"Airtable error: {result}")
+                    else:
+                        st.success(f"✅ **{recipe.get('Name','Recipe')}** saved to your library!")
+                    st.json(recipe)
                     st.json(recipe)
                 except Exception as e:
                     st.error(f"Could not parse recipe: {e}")
